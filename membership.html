@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaphiya Membership</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #ffe6f0;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #fcbcd3;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .membership-container {
+      max-width: 500px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .membership-container h2 {
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    button {
+      background-color: #e91e63;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #d81b60;
+    }
+
+    footer {
+      margin-top: 60px;
+      background-color: #fcbcd3;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">☕ Kaphiya</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="promo.html">Berita & Promo</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="membership-container">
+    <h2>Gabung Jadi Kapi-Member!</h2>
+    <form action="membership.php" method="POST" enctype="multipart/form-data">
+      <input type="text" name="nama" placeholder="Nama Lengkap" required>
+      <input type="email" name="email" placeholder="Email Aktif" required>
+      <input type="text" name="nohp" placeholder="Nomor HP / WhatsApp" required>
+      <select name="preferensi">
+        <option value="" disabled selected>Pilih Preferensi</option>
+        <option value="Minuman">Minuman Favorit</option>
+        <option value="Tempat Nongkrong">Tempat Nongkrong Favorit</option>
+        <option value="Promo">Update Promo</option>
+      </select>
+      <textarea name="pesan" placeholder="Tulis pesan atau harapan kamu untuk Kaphiya 💌" rows="4"></textarea>
+      <button type="submit">Daftar Sekarang</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Kaphiya Coffee. All rights reserved.</p>
+  </footer>
+</body>
+</html>

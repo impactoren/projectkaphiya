@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DM Instagram Kaphiya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #ffe4f0;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .dm-container {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: 360px;
+      max-width: 90%;
+      padding: 25px;
+    }
+
+    .insta-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-image: url('https://i.imgur.com/4M34hi2.png');
+      background-size: cover;
+      background-position: center;
+      border: 2px solid #e91e63;
+    }
+
+    .username {
+      font-weight: bold;
+      color: #e91e63;
+    }
+
+    .dm-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .dm-box textarea {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #e0bcd5;
+      resize: none;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffafc;
+    }
+
+    .dm-box button {
+      background-color: #e91e63;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    .dm-box button:hover {
+      background-color: #c2185b;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .back-link a {
+      color: #777;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <div class="dm-container">
+    <div class="insta-header">
+      <div class="profile-pic"></div>
+      <div>
+        <div class="username">@kaphiya</div>
+        <div style="font-size: 13px; color: #777;">Kaphiya Coffee Official</div>
+      </div>
+    </div>
+
+    <div class="dm-box">
+      <label for="dm">💬 Kirim DM lucu kamu ke kita~</label>
+      <textarea id="dm" rows="5" placeholder="Hai Kaphiya, buka cabang di Lippo dong! ☕💕"></textarea>
+      <button onclick="alert('Uwuuu~ DM kamu terkirim (simulasi doang 😘)')">Kirim DM</button>
+    </div>
+
+    <div class="back-link">
+      <a href="contact.html">⬅️ Balik ke Contact Page</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimoni Pelanggan - Kaphiya Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff7f3;
+      color: #333;
+    }
+    header, footer {
+      background: #ffcad4;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    h1 {
+      text-align: center;
+      margin: 30px 0 10px;
+      color: #d81b60;
+    }
+    .description {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #6d4c41;
+      font-size: 18px;
+    }
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    form input, form textarea, form select, form button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+    form button {
+      background-color: #ff90b3;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background-color: #e46c96;
+    }
+    .testimoni-list {
+      max-width: 900px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 0 15px;
+    }
+    .testimoni-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .testimoni-card img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .testimoni-card h3 {
+      margin: 5px 0 10px;
+      font-size: 18px;
+      color: #b23a48;
+    }
+    .testimoni-card p {
+      font-size: 15px;
+      color: #555;
+      margin: 5px 0;
+    }
+    .rating {
+      font-size: 14px;
+      color: #ff9800;
+      margin-bottom: 10px;
+    }
+    .card-actions {
+      margin-top: 15px;
+    }
+    .card-actions button {
+      padding: 6px 12px;
+      margin-right: 8px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .update-btn {
+      background: #ffd166;
+    }
+    .delete-btn {
+      background: #ef476f;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    ☕ Kaphiya - Cerita & Suara Pelanggan
+  </header>
+
+  <h1>Yuk Kasih Testimoni!</h1>
+  <p class="description">Pernah nongkrong di Kaphiya? Ceritain dong pengalaman kamu, rasanya gimana, tempatnya nyaman gak? ✨</p>
+
+  <form id="testimoniForm">
+    <input type="text" id="nama" placeholder="Nama kamu..." required />
+    <select id="ratingRasa" required>
+      <option value="">Rating rasa (1 - 5)</option>
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+    <select id="ratingTempat" required>
+      <option value="">Rating tempat (1 - 5)</option>
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+    </select>
+    <textarea id="pesan" placeholder="Tulis komentarmu..." required></textarea>
+    <input type="file" id="foto" accept="image/*" />
+    <button type="submit">Kirim Sekarang 💬</button>
+  </form>
+
+  <section class="testimoni-list" id="testimoniList"></section>
+
+  <footer>
+    &copy; 2025 Kaphiya Coffee - Bikin Hari Kamu Lebih Hangat ☕
+  </footer>
+
+  <script>
+    let editIndex = -1;
+
+    function loadTestimoni() {
+      const list = JSON.parse(localStorage.getItem("testimoniKaphiya")) || [];
+      const container = document.getElementById("testimoniList");
+      container.innerHTML = "";
+
+      list.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "testimoni-card";
+
+        card.innerHTML = `
+          ${item.foto ? `<img src="${item.foto}" alt="foto">` : `<img src='https://via.placeholder.com/70' alt='anonim'>`}
+          <h3>${item.nama}</h3>
+          <div class="rating">🌟 Rasa: ${item.ratingRasa} | 🪑 Tempat: ${item.ratingTempat}</div>
+          <p>\"${item.pesan}\"</p>
+          <div class="card-actions">
+            <button class="update-btn" onclick="editTestimoni(${index})">Edit</button>
+            <button class="delete-btn" onclick="deleteTestimoni(${index})">Hapus</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function editTestimoni(index) {
+      const list = JSON.parse(localStorage.getItem("testimoniKaphiya")) || [];
+      const item = list[index];
+      document.getElementById("nama").value = item.nama;
+      document.getElementById("ratingRasa").value = item.ratingRasa;
+      document.getElementById("ratingTempat").value = item.ratingTempat;
+      document.getElementById("pesan").value = item.pesan;
+      editIndex = index;
+    }
+
+    function deleteTestimoni(index) {
+      const list = JSON.parse(localStorage.getItem("testimoniKaphiya")) || [];
+      list.splice(index, 1);
+      localStorage.setItem("testimoniKaphiya", JSON.stringify(list));
+      loadTestimoni();
+    }
+
+    document.getElementById("testimoniForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById("nama").value;
+      const ratingRasa = document.getElementById("ratingRasa").value;
+      const ratingTempat = document.getElementById("ratingTempat").value;
+      const pesan = document.getElementById("pesan").value;
+      const fotoInput = document.getElementById("foto");
+
+      const reader = new FileReader();
+      reader.onload = function() {
+        const foto = reader.result;
+        saveTestimoni({ nama, ratingRasa, ratingTempat, pesan, foto });
+      };
+
+      if (fotoInput.files.length > 0) {
+        reader.readAsDataURL(fotoInput.files[0]);
+      } else {
+        saveTestimoni({ nama, ratingRasa, ratingTempat, pesan, foto: "" });
+      }
+    });
+
+    function saveTestimoni(data) {
+      const list = JSON.parse(localStorage.getItem("testimoniKaphiya")) || [];
+      if (editIndex > -1) {
+        list[editIndex] = data;
+        editIndex = -1;
+      } else {
+        list.push(data);
+      }
+      localStorage.setItem("testimoniKaphiya", JSON.stringify(list));
+      document.getElementById("testimoniForm").reset();
+      loadTestimoni();
+    }
+
+    window.onload = loadTestimoni;
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Now - Kaphiya Coffee</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #ffeef5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff0f5;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #d63384;
+    }
+    .menu-group {
+      margin-top: 20px;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .menu-item label {
+      flex: 1;
+      color: #900c3f;
+    }
+    .menu-item input[type="number"] {
+      width: 60px;
+      margin-left: 10px;
+      border-radius: 8px;
+      border: 1px solid #f8c0d4;
+      padding: 5px;
+    }
+    textarea, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #f8c0d4;
+      margin-top: 10px;
+      font-family: 'Quicksand', sans-serif;
+    }
+    .total {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #c2185b;
+    }
+    .btn {
+      margin-top: 20px;
+      background-color: #ff8fb1;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover {
+      background-color: #f06292;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Order Now 💕</h1>
+  <form action="submit_order.php" method="POST" onsubmit="return prepareOrder()">
+    <div class="menu-group">
+      <h3>Dessert</h3>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Strawberry Cheesecake" data-price="32000"> Strawberry Cheesecake</label><input type="number" name="qty_Strawberry Cheesecake" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Macaron Mix" data-price="28000"> Macaron Mix</label><input type="number" name="qty_Macaron Mix" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Pink Velvet Cupcake" data-price="24000"> Pink Velvet Cupcake</label><input type="number" name="qty_Pink Velvet Cupcake" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Rose Jelly" data-price="20000"> Rose Jelly</label><input type="number" name="qty_Rose Jelly" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Pink Pudding" data-price="22000"> Pink Pudding</label><input type="number" name="qty_Pink Pudding" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Choco Berry Parfait" data-price="30000"> Choco Berry Parfait</label><input type="number" name="qty_Choco Berry Parfait" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Pink Donuts" data-price="18000"> Pink Donuts</label><input type="number" name="qty_Pink Donuts" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Rosy Tarts" data-price="26000"> Rosy Tarts</label><input type="number" name="qty_Rosy Tarts" min="1" value="1" disabled></div>
+    
+    </div> 
+    
+    <div class="menu-group">
+      <h3>Kopi</h3>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Pink Latte" data-price="27000"> Pink Latte</label><input type="number" name="qty_Pink Latte" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Iced Rose Coffee" data-price="30000"> Iced Rose Coffee</label><input type="number" name="qty_Iced Rose Coffee" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Tiramisu Coffee" data-price="33000"> Tiramisu Coffee</label><input type="number" name="qty_Tiramisu Coffee" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Caramel Pink Coldbrew" data-price="29000"> Caramel Pink Coldbrew</label><input type="number" name="qty_Caramel Pink Coldbrew" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Pink Affogato" data-price="35000"> Pink Affogato</label><input type="number" name="qty_Pink Affogato" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Honey Rose Cappucino" data-price="28000"> Honey Rose Cappucino</label><input type="number" name="qty_Honey Rose Cappucino" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Cotton Candy Coffe" data-price="31000"> Cotton Candy Coffe</label><input type="number" name="qty_Cotton Candy Coffe" min="1" value="1" disabled></div>
+      <div class="menu-item"><label><input type="checkbox" name="menu[]" value="Mocha Strawberry" data-price="32000"> Mocha Strawberry</label><input type="number" name="qty_Mocha Strawberry" min="1" value="1" disabled></div>
+    </div>
+
+    <label for="catatan">Catatan (opsional):</label>
+    <textarea name="catatan" id="catatan" rows="3" placeholder="Contoh: Less sugar, no ice..."></textarea>
+
+    <label for="metode_bayar">Metode Pembayaran:</label>
+    <select name="metode_bayar" id="metode_bayar" required onchange="checkQRIS()">
+      <option value="">-- Pilih --</option>
+      <option value="QRIS">QRIS</option>
+      <option value="Cash">Bayar di Kasir</option>
+    </select>
+
+    <div class="total" id="totalHarga">Total: Rp0</div>
+
+    <input type="hidden" name="total_harga" id="total_input">
+    <input type="hidden" name="pesanan_detail" id="pesanan_detail">
+    
+    <button type="submit" class="btn">Pesan Sekarang!</button>
+  </form>
+</div>
+
+<script>
+  const checkboxes = document.querySelectorAll('input[type=checkbox][name="menu[]"]');
+  const totalDisplay = document.getElementById('totalHarga');
+  const totalInput = document.getElementById('total_input');
+  const pesananInput = document.getElementById('pesanan_detail');
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const qtyInput = document.querySelector(`input[name="qty_${cb.value}"]`);
+      qtyInput.disabled = !cb.checked;
+      calculateTotal();
+    });
+  });
+
+  document.querySelectorAll('input[type=number]').forEach(input => {
+    input.addEventListener('input', calculateTotal);
+  });
+
+  function calculateTotal() {
+    let total = 0;
+    checkboxes.forEach(cb => {
+      if (cb.checked) {
+        const price = parseInt(cb.getAttribute('data-price'));
+        const qty = parseInt(document.querySelector(`input[name="qty_${cb.value}"]`).value);
+        total += price * qty;
+      }
+    });
+    totalDisplay.innerText = 'Total: Rp' + total.toLocaleString('id-ID');
+    totalInput.value = total;
+  }
+
+  function prepareOrder() {
+    const details = [];
+    checkboxes.forEach(cb => {
+      if (cb.checked) {
+        const qty = parseInt(document.querySelector(`input[name="qty_${cb.value}"]`).value);
+        details.push(`${cb.value} x${qty}`);
+      }
+    });
+    pesananInput.value = details.join(', ');
+    return true;
+  }
+
+  function checkQRIS() {
+    const metode = document.getElementById("metode_bayar").value;
+    if (metode === "QRIS") {
+      alert("Silakan scan QRIS untuk simulasi pembayaran 💳📱");
+    }
+  }
+</script>
+
+</body>
+</html>

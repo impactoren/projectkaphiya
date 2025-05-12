@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Email Kaphiya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #ffe4f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .email-box {
+      width: 360px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      text-align: left;
+    }
+
+    .email-box h2 {
+      text-align: center;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    .email-box label {
+      font-weight: bold;
+      margin: 10px 0 5px;
+      display: block;
+      color: #d81b60;
+    }
+
+    .email-box input,
+    .email-box textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #e0bcd5;
+      margin-bottom: 15px;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fffafc;
+    }
+
+    .email-box button {
+      width: 100%;
+      background-color: #e91e63;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .email-box button:hover {
+      background-color: #c2185b;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .back-link a:hover {
+      color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-box">
+    <h2>💌 Kirim Email ke Kaphiya</h2>
+
+    <label for="nama">Nama Kamu</label>
+    <input type="text" id="nama" placeholder="Contoh: Lala Kopi" />
+
+    <label for="email">Alamat Email</label>
+    <input type="email" id="email" placeholder="lala@email.com" />
+
+    <label for="pesan">Isi Pesan</label>
+    <textarea id="pesan" rows="5" placeholder="Aku punya ide kolaborasi nih..."></textarea>
+
+    <button onclick="alert('Yeaay~ Email kamu terkirim (boong juga hehe 💕)')">Kirim Email</button>
+
+    <div class="back-link">
+      <a href="contact.html">⬅️ Balik ke Contact Page</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: #FDECEF;
+    color: #4B2E2E;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #FFB6C1;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #FFE6EC;
+  }
+  
+  .hero h1 {
+    font-size: 42px;
+    color: #FF69B4;
+  }
+  
+  .hero p {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .hero span {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #A9746E;
+  }
+  
+  .cta-buttons {
+    margin-top: 30px;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  .btn.pink {
+    background-color: #FF8FB1;
+    color: white;
+  }
+  
+  .btn.outline {
+    border: 2px solid #FF8FB1;
+    color: #FF8FB1;
+    background-color: transparent;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFD6DD;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+      padding-left: 0;
+    }
+  
+    .hero h1 {
+      font-size: 32px;
+    }
+  
+    .hero p {
+      font-size: 18px;
+    }
+  
+    .btn {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+
+  nav ul li a:hover {
+    color: #FFF0F5;
+    transition: color 0.3s ease;
+  }
+  
+  .btn.pink:hover {
+    background-color: #FF6F91;
+  }
+  
+  .btn.outline:hover {
+    background-color: #FF8FB1;
+    color: white;
+  }
+  
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+    padding: 0 20px; /* Tambahan agar tidak terlalu mepet ke pinggir layar */
+  }
+  
+  .menu-item {
+    background-color: #fff0f5;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(212, 90, 121, 0.2); /* efek hover lebih estetik */
+  }
+  
+  .menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-item img:hover {
+    transform: scale(1.05);
+  }
+  
+  .menu-item h3 {
+    color: #D45A79;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .menu-item p {
+    font-size: 14px;
+    color: #5e3d3d;
+    line-height: 1.5;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .price {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #c1446b;
+    font-size: 15px;
+  }
+  
+  
+  /* PROMO GRID */
+.promo-grid { 
+  padding: 40px 20px;
+  background-color: #FFE6EC;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #FF69B4;
+  margin-bottom: 30px;
+}
+
+/* Dua kolom per baris */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.promo-box {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #4B2E2E;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-box:hover {
+  transform: scale(1.02);
+}
+
+/* Biar bentuk persegi kayak menu */
+.promo-box img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.promo-box h3 {
+  padding: 12px;
+  font-size: 16px;
+  text-align: center;
+  margin: 0;
+}
